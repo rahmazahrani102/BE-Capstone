@@ -1,4 +1,5 @@
 const daftar = require('../models/daftar-program')
+const content = require('../models/content-program')
 
 function addData(req,res,next){
     daftar.create({
@@ -22,6 +23,17 @@ function addData(req,res,next){
     return
 }
 
+function getContentData(req,res){
+    content.findAll()
+    .then(data =>{
+        res.json(data);
+    })
+    .catch(err => {
+        console.error('Gagal mengambil data dari model: ' + err.message);
+        res.status(500).send('Terjadi kesalahan saat mengambil data dari model.');
+    });
+}
+
 function program(req,res,next){
     res.json({
         message: "halo ini zahra!"
@@ -29,7 +41,9 @@ function program(req,res,next){
 
     return
 }
+
 module.exports = {
     program,
-    addData
+    addData,
+    getContentData
 }
