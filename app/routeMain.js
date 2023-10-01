@@ -6,7 +6,6 @@ const controller = require("./controller/ProgramController")
 
 
 /* route init */
-router.get('/program', controller.program);
 
 router.get('/programcontent', controller.getContentData);
 

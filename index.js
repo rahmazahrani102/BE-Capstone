@@ -5,8 +5,8 @@ const connection = require('./app/models/ProgramModels')
 const app = express();
 const mainRouter = require('./app/routeMain');
 
-app.use(express.json()); // supaya express bisa response json
-app.use(express.urlencoded({ extended: false })); // supaya express bisa menerima body
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: false })); 
 
 // http router
 app.use("/", mainRouter);
