@@ -8,11 +8,16 @@ const mainRouter = require("./app/routers/routeMain");
 
 const app = express();
 
+<<<<<<< HEAD
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileUpload());
 app.use(express.static("public"));
+=======
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: false })); 
+>>>>>>> dbc6bfda8d692a7b73a4f715346e1fc3aa809c38
 
 // http router
 app.use(mainRouter);

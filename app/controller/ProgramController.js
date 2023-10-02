@@ -26,7 +26,7 @@ function addData(req,res,next){
 function getContentData(req,res){
     content.findAll()
     .then(data =>{
-        res.json(data);
+        res.send(data);
     })
     .catch(err => {
         console.error('Gagal mengambil data dari model: ' + err.message);
@@ -34,16 +34,8 @@ function getContentData(req,res){
     });
 }
 
-function program(req,res,next){
-    res.json({
-        message: "halo ini zahra!"
-    })
-
-    return
-}
 
 module.exports = {
-    program,
     addData,
     getContentData
 }
