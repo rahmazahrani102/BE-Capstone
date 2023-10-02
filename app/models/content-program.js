@@ -1,12 +1,16 @@
-const connection = require ('./ProgramModels')
-const sequelize = require('sequelize')
+const connection = require("../config/database");
+const sequelize = require("sequelize");
 
-const content = connection.define("content",{
-    nama: {type: sequelize.DataTypes.STRING},
-    deskripsi: {type: sequelize.DataTypes.TEXT},
-},{
+const content = connection.define(
+  "content",
+  {
+    nama: { type: sequelize.DataTypes.STRING },
+    deskripsi: { type: sequelize.DataTypes.TEXT },
+  },
+  {
     freezeTableName: true,
-    timestamps: false
-})
+    timestamps: false,
+  }
+);
 
-module.exports = content
+module.exports = content;
