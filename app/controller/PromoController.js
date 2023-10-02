@@ -27,7 +27,7 @@ exports.getPromoById = async (req, res) => {
 exports.savePromo = async (req, res) => {
   if (req.files === null) return res.status(400).json({ msg: "No File Uploaded" });
   const name = req.body.name;
-  const file = req.files.file;
+  const file = req.files.name;
   const fileSize = file.data.length;
   const ext = path.extname(file.name);
   const fileName = file.md5 + ext;
