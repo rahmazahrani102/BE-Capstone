@@ -2,17 +2,25 @@ const daftar = require('../models/daftar-program')
 const content = require('../models/content-program')
 
 function addData(req,res,next){
+    if(req.body.nama == "" || req.body.email == "" || req.body.umur == "" || req.body.jenjang_sekolah == "" || req.body.pilih_program == ""){
+        res.status(400).json({
+            message: "Silahkan Isi Data Anda Terlebih Dahulu"
+        })
+        return
+    }
+
     daftar.create({
         nama: req.body.nama ,
         email: req.body.email,
         umur: req.body.umur,
         jenjang_sekolah: req.body.jenjang_sekolah,
-        kode_promo: req.body.kode_promo
+        kode_promo: req.body.kode_promo,
+        pilih_program: req.body.pilih_program
     })
 
     .then(function(){
         res.status(201).json({
-            message: "pendaftaran berhasil"
+            message: "Pendaftaran Berhasil. Terima Kasih Telah Mendaftar"
         })
     })
     .catch(function(err){

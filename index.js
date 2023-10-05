@@ -1,30 +1,26 @@
 const express = require("express");
 const path = require("path");
-const fileUpload = require("express-fileupload");
+// const fileUpload = require("express-fileupload");
 const cors = require("cors");
-const connection = require("./app/config/database");
+const connection = require("./app/models/databases");
 
-const mainRouter = require("./app/routers/routeMain");
+const mainRouter = require("./app/routeMain");
 
 const app = express();
 
-<<<<<<< HEAD
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(fileUpload());
+// app.use(fileUpload());
 app.use(express.static("public"));
-=======
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false })); 
->>>>>>> dbc6bfda8d692a7b73a4f715346e1fc3aa809c38
 
 // http router
 app.use(mainRouter);
 
 // static router
 app.use("/static", express.static(path.join(__dirname, "static")));
-app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./static"));
 
 const port = 3000;
