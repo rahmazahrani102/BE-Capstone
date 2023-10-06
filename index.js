@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-// const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const connection = require("./app/models/databases");
 
@@ -9,17 +8,10 @@ const mainRouter = require("./app/routeMain");
 const app = express();
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-// app.use(fileUpload());
 app.use(express.static("public"));
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false })); 
-
-// http router
 app.use(mainRouter);
-
-// static router
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.set("views", path.join(__dirname, "./static"));
 
