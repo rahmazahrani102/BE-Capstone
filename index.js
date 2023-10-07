@@ -6,16 +6,10 @@ const mainRouter = require("./app/routeMain");
 const app = express();
 
 app.use(cors());
-<<<<<<< HEAD
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // http router
-=======
-app.use(express.static("public"));
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: false })); 
->>>>>>> e2a147a95973232f44ea5c9507e817ec0dd6e328
 app.use(mainRouter);
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.set("views", path.join(__dirname, "./static"));
