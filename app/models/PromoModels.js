@@ -4,20 +4,16 @@ const sequelize = require("sequelize");
 const { DataTypes } = sequelize;
 
 const Promo = connection.define(
-  "promo",
+  "promo_card",
   {
-    name: DataTypes.STRING,
-    Image: DataTypes.STRING,
     url: DataTypes.STRING,
+    name: DataTypes.STRING,
+    tanggal: DataTypes.STRING,
   },
   {
-    freezeTableName: true,
+    freezeTableName: false,
     timestamps: false,
   }
 );
-
-(async () => {
-  await connection.sync();
-})();
 
 module.exports = Promo;
