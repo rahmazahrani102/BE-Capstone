@@ -8,16 +8,3 @@ exports.getPromo = async (req, res) => {
     console.log(error.message);
   }
 };
-
-// exports.getPromoById = async (req, res) => {
-//   try {
-//     const response = await Promo.findOne({
-//       where: {
-//         id: req.params.id,
-//       },
-//     });
-//     res.json(response);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
